@@ -5,9 +5,17 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+// require routes
+const authRoutes = require('./routes/v1/authRoutes/authRoutes')
 
 // middleware
 applyMiddleware(app);
+
+// use routes
+app.use(authRoutes);
+
+
+
 
 
 app.get("/", (req, res) => {
