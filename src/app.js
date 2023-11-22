@@ -1,5 +1,6 @@
 const express = require("express");
 const applyMiddleware = require("./middlewares/applyMiddleware");
+const connectDB = require("./db/connectDB");
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
@@ -29,6 +30,7 @@ app.use((err, req, res, next) => {
 })
 
 const main = async () => {
+    await connectDB();
     app.listen(port, () => {
         console.log(`Server is running on port ${port}`);
     });
