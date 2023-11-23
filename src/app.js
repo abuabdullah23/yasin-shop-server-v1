@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000;
 // require routes
 const authRoutes = require('./routes/v1/authRoutes/authRoutes')
 const productsRoutes = require('./routes/v1/productsRoutes/productsRoutes')
+const categoriesRoutes = require('./routes/v1/categoryRoutes/categoryRoutes')
 
 // middleware
 applyMiddleware(app);
@@ -15,6 +16,7 @@ applyMiddleware(app);
 // use routes
 app.use(authRoutes);
 app.use(productsRoutes);
+app.use(categoriesRoutes);
 
 
 

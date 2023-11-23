@@ -5,7 +5,8 @@
 // situation 04: http://localhost:5000/get-all-products?pageNumber=1&perPage=2 // pagination products
 // situation 05: http://localhost:5000/get-all-products?slug=achar&pageNumber=1&perPage=2&sortField=price&sortOrder=asc // total filtering products
 
-const productModel = require("../../models/dashboard/ProductModel");
+const ProductModel = require("../../models/dashboard/ProductModel");
+
 
 const getAllProducts = async (req, res) => {
 
@@ -31,10 +32,9 @@ const getAllProducts = async (req, res) => {
         sortObj = { _id: -1 }
     }
 
-    const result = await productModel.find(queryCategory).skip(skipPage).limit(perPage).sort(sortObj);
+    const result = await ProductModel.find(queryCategory).skip(skipPage).limit(perPage).sort(sortObj);
 
-
-    const total = await productModel.find({}).countDocuments();
+    const total = await ProductModel.find({}).countDocuments();
 
     res.send({
         total,

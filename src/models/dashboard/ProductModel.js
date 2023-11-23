@@ -41,7 +41,7 @@ const productSchema = new Schema({
         required: true,
     }
 },
-{ timestamps: true })
+    { timestamps: true })
 
 // for search
 productSchema.index({
@@ -60,6 +60,5 @@ productSchema.index({
 
 )
 
-const productModel = model("products", productSchema)
+module.exports = model("products", productSchema)
 
-module.exports = productModel;
