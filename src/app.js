@@ -1,8 +1,8 @@
 const express = require("express");
-const applyMiddleware = require("./middlewares/applyMiddleware");
-const connectDB = require("./db/connectDB");
 require("dotenv").config();
 const app = express();
+const applyMiddleware = require("./middlewares/applyMiddleware");
+const connectDB = require("./db/connectDB");
 const port = process.env.PORT || 5000;
 
 // require routes

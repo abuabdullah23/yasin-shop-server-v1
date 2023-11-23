@@ -33,6 +33,7 @@ const getAllProducts = async (req, res) => {
     }
 
     const result = await ProductModel.find(queryCategory).populate('categoryId', '-_id title slug').skip(skipPage).limit(perPage).sort(sortObj);
+    
     // const result = await ProductModel.find(queryCategory, '_id name image').skip(skipPage).limit(perPage).sort(sortObj); // find এর পরে স্ট্রিং এর মধ্যে স্পেস দিয়ে যে যে প্রপারর্টি এর নাম লেখা যাবে সেগুলো রিটার্ন করবে।
 
     const total = await ProductModel.find({}).countDocuments();
