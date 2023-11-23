@@ -1,14 +1,14 @@
 const express = require("express");
 require("dotenv").config();
 const app = express();
-const applyMiddleware = require("./middlewares/applyMiddleware");
-const connectDB = require("./db/connectDB");
+const connectDB = require("./src/db/connectDB");
 const port = process.env.PORT || 5000;
 
 // require routes
-const authRoutes = require('./routes/v1/authRoutes/authRoutes')
-const productsRoutes = require('./routes/v1/productsRoutes/productsRoutes')
-const categoriesRoutes = require('./routes/v1/categoryRoutes/categoryRoutes')
+const authRoutes = require('./src/routes/v1/authRoutes/authRoutes')
+const productsRoutes = require('./src/routes/v1/productsRoutes/productsRoutes')
+const categoriesRoutes = require('./src/routes/v1/categoryRoutes/categoryRoutes');
+const applyMiddleware = require("./src/middlewares/applyMiddleware");
 
 // middleware
 applyMiddleware(app);
